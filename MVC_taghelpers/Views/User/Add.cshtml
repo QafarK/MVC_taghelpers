@@ -1,0 +1,47 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model MVC_taghelpers.Models.UserAddViewModel
+@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+
+
+<html>
+<head>
+	<title>Add</title>
+</head>
+<body>
+	<form asp-controller="User" asp-action="Add" method="post">
+
+		<section>
+			<label asp-for="User.Id"></label>
+			<input asp-for="User.Id" />
+		</section>
+
+		<section>
+			<label asp-for="User.Name"></label>
+			<input asp-for="User.Name" />
+		</section>
+
+		<section>
+			<label asp-for="User.Surname"></label>
+			<input asp-for="User.Surname" />
+		</section>
+
+		<section>
+			<label asp-for="User.Image"></label>
+			<input asp-for="User.Image" />
+		</section>
+
+		<section>
+			<label asp-for="User.Age"></label>
+			<input asp-for="User.Age" />
+		</section>
+
+		<section>
+			<button type="submit">Add</button>
+		</section>
+	</form>
+</body>
+</html>

@@ -1,0 +1,28 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model IEnumerable<MVC_taghelpers.Models.UserAddViewModel>
+@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+
+
+<html>
+<head>
+	<title>Details</title>
+</head>
+<body>
+
+	@foreach (var item in Model)
+	{
+		<div>
+			<p style="border: groove"><strong>Id:</strong> @item.User.Id</p>
+			<p><strong>Name:</strong> @item.User.Name</p>
+			<p><strong>Surname:</strong> @item.User.Surname</p>
+			<p><strong>Image:</strong> @item.User.Image</p>
+			<p><strong>Age:</strong> @item.User.Age</p>
+		</div>
+	}
+
+</body>
+</html>
