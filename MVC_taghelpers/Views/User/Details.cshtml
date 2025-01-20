@@ -12,17 +12,32 @@
 	<title>Details</title>
 </head>
 <body>
+	<div>
 
-	@foreach (var item in Model)
-	{
+		@if (Model != null)
+		{
+			<div>
+				@foreach (var item in Model)
+				{
+					<div style="border: groove; margin-bottom: 16px; display: flex; gap: 10px;">
+						<p><strong>Id:</strong> @item.User.Id</p>
+						<p><strong>Name:</strong> @item.User.Name</p>
+						<p><strong>Surname:</strong> @item.User.Surname</p>
+						<p><strong>Image:</strong> @item.User.Image</p>
+						<p><strong>Age:</strong> @item.User.Age</p>
+					</div>
+				}
+			</div>
+		}
+
 		<div>
-			<p style="border: groove"><strong>Id:</strong> @item.User.Id</p>
-			<p><strong>Name:</strong> @item.User.Name</p>
-			<p><strong>Surname:</strong> @item.User.Surname</p>
-			<p><strong>Image:</strong> @item.User.Image</p>
-			<p><strong>Age:</strong> @item.User.Age</p>
+			<form asp-controller="User" asp-action="Add" method="get">
+				<section>
+					<button type="submit" style="height:50px">Add New User</button>
+				</section>
+			</form>
 		</div>
-	}
+	</div>
 
 </body>
 </html>

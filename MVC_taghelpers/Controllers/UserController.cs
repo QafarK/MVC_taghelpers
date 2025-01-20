@@ -5,24 +5,25 @@ using MVC_taghelpers.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
+using System.Linq;
 namespace MVC_taghelpers.Controllers
 {
 	public class UserController : Controller
 	{
 		public string Index()
 		{
-			return "UserController";
+			return "UserController\n--------------\nUser/Add\nUser/Details/id";
 		}
 
 		[HttpGet]
 		public IActionResult Add()
 		{
+
 			var vm = new UserAddViewModel()
 			{
 				User = new User()
 			};
-
-			return View(vm);
+			return View("Add", vm);
 		}
 
 		[HttpPost]
@@ -62,10 +63,19 @@ namespace MVC_taghelpers.Controllers
 					users = new() { userVM }; // user as List
 				}
 				System.IO.File.WriteAllText(jsonPath, jsonString);
-				return View("Details", users);
+
+				View("Details", users);
+				return RedirectToAction("Details");
 			}
+			return View("Add");
+		}
+
+		public IActionResult Details(int id = -1)
+		{
+			if (id == -1)
+				return View("Details", Data.GetDatas());
 			else
-				return RedirectToRoute(new RouteValueDictionary(new { action = "Index", controller = "Home" }));
+				return View("Details", Data.GetDatas().Where(u => u.User.Id == id));
 		}
 	}
 }

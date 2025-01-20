@@ -14,33 +14,40 @@
 <body>
 	<form asp-controller="User" asp-action="Add" method="post">
 
-		<section>
+		<button asp-controller="User" asp-action="Details" type="submit" style="width:140px; height:50px; margin-bottom: 48px">Go Home</button>
+
+		<section style="margin-bottom: 16px">
 			<label asp-for="User.Id"></label>
 			<input asp-for="User.Id" />
+			<span asp-validation-for="User.Id" style="color: red"></span>
 		</section>
 
-		<section>
+		<section style="margin-bottom: 16px">
 			<label asp-for="User.Name"></label>
 			<input asp-for="User.Name" />
+			<span asp-validation-for="User.Name" style="color: red"></span>
 		</section>
 
-		<section>
+		<section style="margin-bottom: 16px">
 			<label asp-for="User.Surname"></label>
 			<input asp-for="User.Surname" />
+			<span asp-validation-for="User.Surname" style="color: red"></span>
 		</section>
 
-		<section>
+		<section style="margin-bottom: 16px">
 			<label asp-for="User.Image"></label>
 			<input asp-for="User.Image" />
+			<span asp-validation-for="User.Image" style="color: red"></span>
 		</section>
 
-		<section>
+		<section style="margin-bottom: 16px">
 			<label asp-for="User.Age"></label>
 			<input asp-for="User.Age" />
+			<span asp-validation-for="User.Age" style="color: red"></span>
 		</section>
 
-		<section>
-			<button type="submit">Add</button>
+		<section style="margin-bottom: 16px">
+			<button type="submit" style="width:70px; height:50px; margin-top: 16px; cursor: pointer">Add</button>
 		</section>
 	</form>
 </body>
